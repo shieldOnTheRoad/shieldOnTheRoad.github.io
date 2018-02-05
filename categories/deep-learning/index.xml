@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning on shield&#39;s Blogs</title>
+    <link>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/categories/deep-learning/</link>
+    <description>Recent content in Deep Learning on shield&#39;s Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 04 Feb 2018 18:03:09 +0800</lastBuildDate>
+    
+	<atom:link href="file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/categories/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Caffe2 Intro</title>
+      <link>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/post/caffe2-intro/</link>
+      <pubDate>Sun, 04 Feb 2018 18:03:09 +0800</pubDate>
+      
+      <guid>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/post/caffe2-intro/</guid>
+      <description>&lt;p&gt;这篇文章主要根据Caffe2官方文档，对Caffe2做选择性介绍。包括：Caffe2常用的组件（&lt;code&gt;lmdb&lt;/code&gt;,&lt;code&gt;workspace&lt;/code&gt;, &lt;code&gt;operator&lt;/code&gt;等）、Caffe2模型训练过程（&lt;code&gt;resnet50&lt;/code&gt;）、Caffe2模型加载与保存、自己使用过程中遇到的一些bug的修复方法。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

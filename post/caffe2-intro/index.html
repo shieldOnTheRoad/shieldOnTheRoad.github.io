@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Caffe2 Intro - shield&#39;s Blogs</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="shield" />
+  <meta name="description" content="这篇文章主要根据Caffe2官方文档，对Caffe2做选择性介绍。包括：Caffe2常用的组件（lmdb,workspace, operator等）、Caffe2模型训练过程（resnet50）、Caffe2模型加载与保存、自己使用过程中遇到的一些bug的修复方法。
+" />
+
+  <meta name="keywords" content="learning, disscussion" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.35" />
+
+
+<link rel="canonical" href="#ZgotmplZ" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/favicon-16x16.png">
+<link rel="manifest" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/manifest.json">
+<link rel="mask-icon" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/dist/even.min.css?v=3.0.0" rel="stylesheet">
+<link href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Caffe2 Intro" />
+<meta property="og:description" content="这篇文章主要根据Caffe2官方文档，对Caffe2做选择性介绍。包括：Caffe2常用的组件（lmdb,workspace, operator等）、Caffe2模型训练过程（resnet50）、Caffe2模型加载与保存、自己使用过程中遇到的一些bug的修复方法。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/post/caffe2-intro/" />
+
+
+
+<meta property="article:published_time" content="2018-02-04T18:03:09&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-02-04T18:03:09&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Caffe2 Intro">
+<meta itemprop="description" content="这篇文章主要根据Caffe2官方文档，对Caffe2做选择性介绍。包括：Caffe2常用的组件（lmdb,workspace, operator等）、Caffe2模型训练过程（resnet50）、Caffe2模型加载与保存、自己使用过程中遇到的一些bug的修复方法。">
+
+
+<meta itemprop="datePublished" content="2018-02-04T18:03:09&#43;08:00" />
+<meta itemprop="dateModified" content="2018-02-04T18:03:09&#43;08:00" />
+<meta itemprop="wordCount" content="158">
+
+
+
+<meta itemprop="keywords" content="caffe2,code," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Caffe2 Intro"/>
+<meta name="twitter:description" content="这篇文章主要根据Caffe2官方文档，对Caffe2做选择性介绍。包括：Caffe2常用的组件（lmdb,workspace, operator等）、Caffe2模型训练过程（resnet50）、Caffe2模型加载与保存、自己使用过程中遇到的一些bug的修复方法。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/" class="logo">Shield&#39;s Blogs</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/" class="logo">Shield&#39;s Blogs</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Caffe2 Intro</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-02-04 </span>
+        <div class="post-category">
+            
+              <a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/categories/deep-learning/"> Deep Learning </a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-caffe与caffe2异同">1. Caffe与Caffe2异同</a></li>
+<li><a href="#2-caffe2常用组件">2. Caffe2常用组件</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>这篇文章主要根据Caffe2官方文档，对Caffe2做选择性介绍。包括：Caffe2常用的组件（<code>lmdb</code>,<code>workspace</code>, <code>operator</code>等）、Caffe2模型训练过程（<code>resnet50</code>）、Caffe2模型加载与保存、自己使用过程中遇到的一些bug的修复方法。</p>
+
+<p>
+<br></p>
+
+<h3 id="1-caffe与caffe2异同">1. Caffe与Caffe2异同</h3>
+
+<h3 id="2-caffe2常用组件">2. Caffe2常用组件</h3>
+
+<p><br></p>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">shield</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2018-02-04</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/caffe2/">caffe2</a>
+          
+          <a href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/code/">code</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/post/trends/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">[Pin] Keep up with New Trends</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="#ZgotmplZ" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">shield</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/E:/stuff/graduate_stuff/shieldDailyBlogs/public/dist/even.min.js?v=3.0.0"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

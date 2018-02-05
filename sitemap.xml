@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/post/trends/</loc>
+    <lastmod>2018-02-05T12:48:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/post/caffe2-intro/</loc>
+    <lastmod>2018-02-04T18:03:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/about/</loc>
+    <lastmod>2018-02-04T19:55:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/caffe2/</loc>
+    <lastmod>2018-02-04T18:03:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/code/</loc>
+    <lastmod>2018-02-04T18:03:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/categories/deep-learning/</loc>
+    <lastmod>2018-02-04T18:03:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/github/</loc>
+    <lastmod>2018-02-05T12:48:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/paper/</loc>
+    <lastmod>2018-02-05T12:48:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/post/</loc>
+    <lastmod>2018-02-05T12:48:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/categories/research/</loc>
+    <lastmod>2018-02-05T12:48:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/</loc>
+    <lastmod>2018-02-04T18:03:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/</loc>
+    <lastmod>2018-02-05T12:48:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

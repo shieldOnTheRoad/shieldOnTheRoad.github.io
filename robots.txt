@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/sitemap.xml
