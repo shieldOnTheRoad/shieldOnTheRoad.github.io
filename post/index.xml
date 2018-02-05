@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on shield&#39;s Blogs</title>
-    <link>shieldOnTheRoad.github.io/post/</link>
+    <link>http://shieldOnTheRoad.github.io/post/</link>
     <description>Recent content in Posts on shield&#39;s Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 05 Feb 2018 12:48:36 +0800</lastBuildDate>
     
-	<atom:link href="shieldOnTheRoad.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shieldOnTheRoad.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[Pin] Keep up with New Trends</title>
-      <link>shieldOnTheRoad.github.io/post/trends/</link>
+      <link>http://shieldOnTheRoad.github.io/post/trends/</link>
       <pubDate>Mon, 05 Feb 2018 12:48:36 +0800</pubDate>
       
-      <guid>shieldOnTheRoad.github.io/post/trends/</guid>
+      <guid>http://shieldOnTheRoad.github.io/post/trends/</guid>
       <description>&lt;p&gt;追踪、记录自己感兴趣研究领域的最新进展是一件令人享受的事情，本文涉及内容：&lt;code&gt;目标检测&lt;/code&gt;、&lt;code&gt;图像分类&lt;/code&gt;、&lt;code&gt;视频分类&lt;/code&gt;、&lt;code&gt;推荐系统&lt;/code&gt;、&lt;code&gt;文本分类&lt;/code&gt;、&lt;code&gt;语音识别&lt;/code&gt;。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Caffe2 Intro</title>
-      <link>shieldOnTheRoad.github.io/post/caffe2-intro/</link>
+      <link>http://shieldOnTheRoad.github.io/post/caffe2-intro/</link>
       <pubDate>Sun, 04 Feb 2018 18:03:09 +0800</pubDate>
       
-      <guid>shieldOnTheRoad.github.io/post/caffe2-intro/</guid>
+      <guid>http://shieldOnTheRoad.github.io/post/caffe2-intro/</guid>
       <description>&lt;p&gt;这篇文章主要根据Caffe2官方文档，对Caffe2做选择性介绍。包括：Caffe2常用的组件（&lt;code&gt;lmdb&lt;/code&gt;,&lt;code&gt;workspace&lt;/code&gt;, &lt;code&gt;operator&lt;/code&gt;等）、Caffe2模型训练过程（&lt;code&gt;resnet50&lt;/code&gt;）、Caffe2模型加载与保存、自己使用过程中遇到的一些bug的修复方法。&lt;/p&gt;</description>
     </item>
     

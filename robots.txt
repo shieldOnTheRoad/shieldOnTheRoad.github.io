@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: shieldOnTheRoad.github.io/sitemap.xml
+Sitemap: http://shieldOnTheRoad.github.io/sitemap.xml

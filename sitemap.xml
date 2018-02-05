@@ -1,92 +1,92 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<?xml-stylesheet type="text/xsl" href="shieldOnTheRoad.github.io/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="http://shieldOnTheRoad.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>shieldOnTheRoad.github.io/post/trends/</loc>
+    <loc>http://shieldOnTheRoad.github.io/post/trends/</loc>
     <lastmod>2018-02-05T12:48:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/post/caffe2-intro/</loc>
+    <loc>http://shieldOnTheRoad.github.io/post/caffe2-intro/</loc>
     <lastmod>2018-02-04T18:03:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/about/</loc>
+    <loc>http://shieldOnTheRoad.github.io/about/</loc>
     <lastmod>2018-02-04T19:55:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/tags/caffe2/</loc>
+    <loc>http://shieldOnTheRoad.github.io/tags/caffe2/</loc>
     <lastmod>2018-02-04T18:03:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/categories/</loc>
+    <loc>http://shieldOnTheRoad.github.io/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/tags/code/</loc>
+    <loc>http://shieldOnTheRoad.github.io/tags/code/</loc>
     <lastmod>2018-02-04T18:03:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/categories/deep-learning/</loc>
+    <loc>http://shieldOnTheRoad.github.io/categories/deep-learning/</loc>
     <lastmod>2018-02-04T18:03:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/tags/github/</loc>
+    <loc>http://shieldOnTheRoad.github.io/tags/github/</loc>
     <lastmod>2018-02-05T12:48:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/tags/paper/</loc>
+    <loc>http://shieldOnTheRoad.github.io/tags/paper/</loc>
     <lastmod>2018-02-05T12:48:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/post/</loc>
+    <loc>http://shieldOnTheRoad.github.io/post/</loc>
     <lastmod>2018-02-05T12:48:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/categories/research/</loc>
+    <loc>http://shieldOnTheRoad.github.io/categories/research/</loc>
     <lastmod>2018-02-05T12:48:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/tags/</loc>
+    <loc>http://shieldOnTheRoad.github.io/tags/</loc>
     <lastmod>2018-02-04T18:03:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>shieldOnTheRoad.github.io/</loc>
+    <loc>http://shieldOnTheRoad.github.io/</loc>
     <lastmod>2018-02-05T12:48:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
