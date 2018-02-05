@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/sitemap.xml
+Sitemap: shieldOnTheRoad.github.io/sitemap.xml

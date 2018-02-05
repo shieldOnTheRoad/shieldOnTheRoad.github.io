@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on shield&#39;s Blogs</title>
-    <link>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/</link>
+    <link>shieldOnTheRoad.github.io/tags/</link>
     <description>Recent content in Tags on shield&#39;s Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 04 Feb 2018 18:03:09 +0800</lastBuildDate>
     
-	<atom:link href="file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="shieldOnTheRoad.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Caffe2</title>
-      <link>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/caffe2/</link>
+      <link>shieldOnTheRoad.github.io/tags/caffe2/</link>
       <pubDate>Sun, 04 Feb 2018 18:03:09 +0800</pubDate>
       
-      <guid>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/caffe2/</guid>
+      <guid>shieldOnTheRoad.github.io/tags/caffe2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Code</title>
-      <link>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/code/</link>
+      <link>shieldOnTheRoad.github.io/tags/code/</link>
       <pubDate>Sun, 04 Feb 2018 18:03:09 +0800</pubDate>
       
-      <guid>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/code/</guid>
+      <guid>shieldOnTheRoad.github.io/tags/code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Github</title>
-      <link>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/github/</link>
+      <link>shieldOnTheRoad.github.io/tags/github/</link>
       <pubDate>Mon, 05 Feb 2018 12:48:36 +0800</pubDate>
       
-      <guid>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/github/</guid>
+      <guid>shieldOnTheRoad.github.io/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Paper</title>
-      <link>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/paper/</link>
+      <link>shieldOnTheRoad.github.io/tags/paper/</link>
       <pubDate>Mon, 05 Feb 2018 12:48:36 +0800</pubDate>
       
-      <guid>file:///E:/stuff/graduate_stuff/shieldDailyBlogs/public/tags/paper/</guid>
+      <guid>shieldOnTheRoad.github.io/tags/paper/</guid>
       <description></description>
     </item>
     
