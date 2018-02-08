@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="shield" />
-  <meta name="description" content="我的python速查手册。API这玩意，经久不用就容易忘记，记录下来。
+  <meta name="description" content="我的python速查手册。计算机语言这玩意，经久不用就容易忘记，记录下来。
 " />
 
   <meta name="keywords" content="learning, disscussion" />
@@ -51,7 +51,7 @@
 
 
 <meta property="og:title" content="Python Manual" />
-<meta property="og:description" content="我的python速查手册。API这玩意，经久不用就容易忘记，记录下来。" />
+<meta property="og:description" content="我的python速查手册。计算机语言这玩意，经久不用就容易忘记，记录下来。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://shieldOnTheRoad.github.io/post/python-manual/" />
 
@@ -59,7 +59,7 @@
 
 <meta property="article:published_time" content="2018-02-06T12:48:36&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-02-06T12:48:36&#43;08:00"/>
+<meta property="article:modified_time" content="2018-02-08T08:48:36&#43;08:00"/>
 
 
 
@@ -72,19 +72,19 @@
 
 
 <meta itemprop="name" content="Python Manual">
-<meta itemprop="description" content="我的python速查手册。API这玩意，经久不用就容易忘记，记录下来。">
+<meta itemprop="description" content="我的python速查手册。计算机语言这玩意，经久不用就容易忘记，记录下来。">
 
 
 <meta itemprop="datePublished" content="2018-02-06T12:48:36&#43;08:00" />
 <meta itemprop="dateModified" content="2018-02-06T12:48:36&#43;08:00" />
-<meta itemprop="wordCount" content="53">
+<meta itemprop="wordCount" content="494">
 
 
 
 <meta itemprop="keywords" content="python,code," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python Manual"/>
-<meta name="twitter:description" content="我的python速查手册。API这玩意，经久不用就容易忘记，记录下来。"/>
+<meta name="twitter:description" content="我的python速查手册。计算机语言这玩意，经久不用就容易忘记，记录下来。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -170,12 +170,80 @@
 
     
     <div class="post-content">
-      <p>我的<code>python</code>速查手册。API这玩意，经久不用就容易忘记，记录下来。</p>
+      <p>我的<code>python</code>速查手册。计算机语言这玩意，经久不用就容易忘记，记录下来。</p>
 
 <p>
 <br></p>
 
-<h2 id="参考资料">参考资料</h2>
+<h2 id="1-python-api">#1 <strong>PYTHON API</strong></h2>
+
+<h4 id="1-1-map-filter和reduce"><strong>1.1 Map,Filter和Reduce</strong></h4>
+
+<p><code>Map</code>会将一个函数映射到一个输入列表的所有元素上。</p>
+
+<pre><code class="language-python"># case1: items传递普通变量（e.g., 数值）
+items = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, items))
+print(squared)
+
+# case2: items传递特殊变量（e.g., 函数)
+def multiply(x):
+        return (x*x)
+def add(x):
+        return (x+x)
+
+funcs = [multiply, add]
+for i in range(5):
+    value = map(lambda x: x(i), funcs)
+    print(list(value))  # 转成list适应python3返回的迭代器
+</code></pre>
+
+<p><code>filter</code>过滤列表中的元素，并且返回一个由所有符合要求（返回值为<code>True</code>）的元素所构成的列表。</p>
+
+<pre><code class="language-python">number_list = range(-5, 5)
+less_than_zero = filter(lambda x: x &lt; 0, number_list)
+print(list(less_than_zero)) 
+
+# Output: [-5, -4, -3, -2, -1]
+</code></pre>
+
+<p><code>reduce</code>对一个列表进行一些计算并返回结果</p>
+
+<pre><code class="language-python">product = reduce((lambda x, y: x * y), [1, 2, 3, 4])
+print(product)
+</code></pre>
+
+<p><br></p>
+
+<h2 id="2-知识点">#2 <strong>知识点</strong></h2>
+
+<h4 id="2-1-python-debugger-pdb"><strong>2.1 Python debugger(pdb)</strong></h4>
+
+<p>命令行使用python debugger运行一个脚本。</p>
+
+<pre><code class="language-shell">$ python -m pdb my_script.py
+</code></pre>
+
+<p>py脚本内嵌入pdb模块，使用<code>pdb.set_trace()</code>方法设置断点。</p>
+
+<pre><code class="language-python">import pdb
+
+def make_bread():
+    pdb.set_trace()
+    return &quot;I don't have time&quot;
+
+print(make_bread())
+
+# c: 继续执行
+# w: 显示当前正在执行的代码行的上下文信息
+# a: 打印当前函数的参数列表
+# s: 执行当前代码行，并停在第一个能停的地方（相当于单步进入）
+# n: 继续执行到当前函数的下一行，或者当前行直接返回（单步跳过）
+</code></pre>
+
+<p><br></p>
+
+<h2 id="参考资料"># <strong>参考资料</strong></h2>
 
 <ol>
 <li><a href="http://docs.pythontab.com/interpy/">Python进阶</a></li>
@@ -195,7 +263,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">2018-02-06</span>
+    <span class="item-content">2018-02-08</span>
   </p>
   
   
