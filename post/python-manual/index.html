@@ -77,7 +77,7 @@
 
 <meta itemprop="datePublished" content="2018-02-06T12:48:36&#43;08:00" />
 <meta itemprop="dateModified" content="2018-02-06T12:48:36&#43;08:00" />
-<meta itemprop="wordCount" content="494">
+<meta itemprop="wordCount" content="778">
 
 
 
@@ -175,6 +175,154 @@
 <p>
 <br></p>
 
+<h2 id="0-indexing">#0 <strong>INDEXING</strong></h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">api</th>
+<th align="left">description</th>
+<th align="left">category</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">np.loadtxt(&lsquo;file.txt&rsquo;, delimiter=&lsquo;,&rsquo;)</td>
+<td align="left">load .txt file</td>
+<td align="left"><font face='Times New Roman' color='#6699ff'>IMPORTING / EXPORTING</font></td>
+</tr>
+
+<tr>
+<td align="left">np.genfromtxt(&lsquo;file.csv&rsquo;, delimiter=&lsquo;,&rsquo;)</td>
+<td align="left">load .csv file</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.savetxt(&lsquo;file.txt&rsquo;, arr, delimiter=&lsquo;,&rsquo;)</td>
+<td align="left">writes to a text file</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.zeros(3)</td>
+<td align="left">3x1 arr with all values 0</td>
+<td align="left"><font face='Times New Roman' color='#6699ff'>CREATING ARRAYS</font></td>
+</tr>
+
+<tr>
+<td align="left">np.ones((3,4))</td>
+<td align="left">3x4 arr with all values 1</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.eye(5)</td>
+<td align="left">5x5 array of Identity matrix</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.linspace(0, 100, 6)</td>
+<td align="left">6 uniform values from 0 to 100</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.full((2,3), 8)</td>
+<td align="left">2x3 arr with all values 8</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.random.rand(4, 5)</td>
+<td align="left">4x5 arr of random val in [0,1)</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.random.randint(5, size=(2,3))</td>
+<td align="left">2x3 arr of random ints in [0, 5)</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.copy(arr)</td>
+<td align="left">copies arr to new memory</td>
+<td align="left"><font face='Times New Roman' color='#6699ff'>COPY / SORT / RESHAPE</font></td>
+</tr>
+
+<tr>
+<td align="left">arr.sort(axis=0)</td>
+<td align="left">sorts specific axis of arr.</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">two_d_arr.flatten()</td>
+<td align="left">flatten 2D array to 1D</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">arr.reshape(3, 4)</td>
+<td align="left">reshape arr. to 3x4</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">arr.resize((5,6))</td>
+<td align="left">change arr. to 5x6</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.append(arr, value)</td>
+<td align="left">append value to end of arr.</td>
+<td align="left"><font face='Times New Roman' color='#6699ff'>ADD / RM ELEMENTS</font></td>
+</tr>
+
+<tr>
+<td align="left">np.insert(arr, 2, value)</td>
+<td align="left">inserts val into arr. before idx 2</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.delete(arr, 3, axis=0)</td>
+<td align="left">deletes row on index 3 of arr.</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.concatenate((arr1,arr2), axis=0)</td>
+<td align="left">add arr2 as rows to arr1</td>
+<td align="left"><font face='Times New Roman' color='#6699ff'>COMBINING / SPLIT</font></td>
+</tr>
+
+<tr>
+<td align="left">np.concatenate((arr1,arr2), axis=1)</td>
+<td align="left">add arr2 as columns to arr1</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.split(arr, 3)</td>
+<td align="left">split arr into 3 sub-arr</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.hsplit(arr, 5)</td>
+<td align="left">split arr horizontally into 5 arr</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<p><br></p>
+
 <h2 id="1-python-api">#1 <strong>PYTHON API</strong></h2>
 
 <h4 id="1-1-map-filter和reduce"><strong>1.1 Map,Filter和Reduce</strong></h4>
@@ -239,6 +387,19 @@ print(make_bread())
 # a: 打印当前函数的参数列表
 # s: 执行当前代码行，并停在第一个能停的地方（相当于单步进入）
 # n: 继续执行到当前函数的下一行，或者当前行直接返回（单步跳过）
+</code></pre>
+
+<h4 id="2-2-virtualenv"><strong>2.2 virtualenv</strong></h4>
+
+<p>新建python虚拟环境。</p>
+
+<pre><code class="language-shell">$ pip install virtualenv
+$ # virtualenv -p /usr/local/bin/python3.4 ENV3.4
+$ # --system-site-packages继承原有所有包
+$ virtualenv --no-site-package venv
+$ source ./bin/activate  # 或者source ./Scripts/activate
+$ pip list  # 查看当前环境依赖包信息
+$ ./bin/deactivate  # 停止使用虚拟程序
 </code></pre>
 
 <p><br></p>
