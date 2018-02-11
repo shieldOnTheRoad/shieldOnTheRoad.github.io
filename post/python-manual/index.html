@@ -59,7 +59,7 @@
 
 <meta property="article:published_time" content="2018-02-06T12:48:36&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-02-08T08:48:36&#43;08:00"/>
+<meta property="article:modified_time" content="2018-02-11T15:48:36&#43;08:00"/>
 
 
 
@@ -77,7 +77,7 @@
 
 <meta itemprop="datePublished" content="2018-02-06T12:48:36&#43;08:00" />
 <meta itemprop="dateModified" content="2018-02-06T12:48:36&#43;08:00" />
-<meta itemprop="wordCount" content="778">
+<meta itemprop="wordCount" content="883">
 
 
 
@@ -224,6 +224,12 @@
 </tr>
 
 <tr>
+<td align="left">np.diag(np.arange(1,4), k=0)</td>
+<td align="left">create a diagonal matrix</td>
+<td align="left"></td>
+</tr>
+
+<tr>
 <td align="left">np.linspace(0, 100, 6)</td>
 <td align="left">6 uniform values from 0 to 100</td>
 <td align="left"></td>
@@ -267,31 +273,31 @@
 
 <tr>
 <td align="left">arr.reshape(3, 4)</td>
-<td align="left">reshape arr. to 3x4</td>
+<td align="left">reshape arr to 3x4</td>
 <td align="left"></td>
 </tr>
 
 <tr>
 <td align="left">arr.resize((5,6))</td>
-<td align="left">change arr. to 5x6</td>
+<td align="left">change arr to 5x6</td>
 <td align="left"></td>
 </tr>
 
 <tr>
 <td align="left">np.append(arr, value)</td>
-<td align="left">append value to end of arr.</td>
+<td align="left">append value to end of arr</td>
 <td align="left"><font face='Times New Roman' color='#6699ff'>ADD / RM ELEMENTS</font></td>
 </tr>
 
 <tr>
 <td align="left">np.insert(arr, 2, value)</td>
-<td align="left">inserts val into arr. before idx 2</td>
+<td align="left">inserts val into arr. before idx2</td>
 <td align="left"></td>
 </tr>
 
 <tr>
 <td align="left">np.delete(arr, 3, axis=0)</td>
-<td align="left">deletes row on index 3 of arr.</td>
+<td align="left">deletes row on idx3 of arr</td>
 <td align="left"></td>
 </tr>
 
@@ -317,6 +323,78 @@
 <td align="left">np.hsplit(arr, 5)</td>
 <td align="left">split arr horizontally into 5 arr</td>
 <td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">arr&lt;5</td>
+<td align="left">return an arr with boolean val</td>
+<td align="left"><font face='Times New Roman' color='#6699ff'>INDEX / SLICE / SUBSET</font></td>
+</tr>
+
+<tr>
+<td align="left">(arr1<3) & (arr2>5)</td>
+<td align="left">return an arr with boolean val</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">~arr</td>
+<td align="left">invert a boolean arr</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">arr[1::2]</td>
+<td align="left">select val from idx1 with step2</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.nonzero(arr)</td>
+<td align="left">find idxs of ~0 val from arr</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.pad(arr, pad_width, mode)</td>
+<td align="left">add a border around arr</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.ceil(arr)</td>
+<td align="left">round up to the nearest int</td>
+<td align="left"><font face='Times New Roman' color='#6699ff'>VECTOR MATH</font></td>
+</tr>
+
+<tr>
+<td align="left">np.floor(arr)</td>
+<td align="left">round down to the nearest int</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">np.round(arr)</td>
+<td align="left">round to the nearest int</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">arr.size * arr.itemsize</td>
+<td align="left">find memory size of any arr</td>
+<td align="left"><font face='Times New Roman' color='#6699ff'>INFO STATISTICS</font></td>
+</tr>
+
+<tr>
+<td align="left">np.info(arr)</td>
+<td align="left">get info of arr</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">print(0.3 == 3 * 0.1)</td>
+<td align="left">return False :(</td>
+<td align="left"><font face='Times New Roman' color='#6699ff'>NOTE THAT</font></td>
 </tr>
 </tbody>
 </table>
@@ -411,6 +489,7 @@ $ ./bin/deactivate  # 停止使用虚拟程序
 <li><a href="http://book.pythontips.com/en/latest/">Intermediate Python</a></li>
 <li><a href="https://github.com/rougier/numpy-100/blob/master/100%20Numpy%20exercises.md">100 numpy exercises</a></li>
 <li><a href="https://github.com/vinta/awesome-python">awesome-python</a></li>
+<li><a href="http://t.cn/RXKw3Ui">Data Science Cheat Sheet - NumPy</a></li>
 </ol>
 
 <p><br></p>
@@ -424,7 +503,7 @@ $ ./bin/deactivate  # 停止使用虚拟程序
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">2018-02-08</span>
+    <span class="item-content">2018-02-11</span>
   </p>
   
   
