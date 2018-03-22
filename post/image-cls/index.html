@@ -59,7 +59,7 @@
 
 <meta property="article:published_time" content="2018-03-21T12:47:36&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-03-21T12:47:36&#43;08:00"/>
+<meta property="article:modified_time" content="2018-03-23T12:47:36&#43;08:00"/>
 
 
 
@@ -77,7 +77,7 @@
 
 <meta itemprop="datePublished" content="2018-03-21T12:47:36&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-21T12:47:36&#43;08:00" />
-<meta itemprop="wordCount" content="2478">
+<meta itemprop="wordCount" content="4492">
 
 
 
@@ -177,7 +177,7 @@
 
 <h2 id="1-概述">#1 <strong>概述</strong></h2>
 
-<p>&emsp;&emsp;<code>图像分类</code>任务即是识别一张图片是否含有某类物体，有关<code>图像分类</code>算法的研究已经有五十多年历史，随着一些重要数据（e.g., <code>PASCAL VOC</code>、<code>ImageNet</code>）的相继推出，<code>图像分类</code>算法有了长足的发展。研究内容主要集中于如何对图像的特征进行描述。一般来说，<code>图像分类</code>算法通过<code>手工特征</code>或者<code>特征学习方法</code>对整幅图像进行全局描述，然后利用分类器判断是否存在某类物体。</p>
+<p>&emsp;&emsp;<code>图像分类</code>任务即是识别一张图片是否含有某类物体，有关<code>图像分类</code>算法的研究已经有五十多年历史，随着一些重要数据（e.g., <code>PASCAL VOC</code>、<code>ImageNet</code>）的相继推出，<code>图像分类</code>算法有了长足的发展。研究内容主要集中于如何对图像的特征进行描述。一般来说，<code>图像分类</code>算法通过<code>手工特征</code>或者<code>特征学习方法</code>对整幅图像进行全局描述，然后利用分类器判断是否存在某类物体 <sup><a href="#ref01">[1]</a></sup>。</p>
 
 <h3 id="1-1-手工特征"><strong>1.1 手工特征</strong></h3>
 
@@ -300,15 +300,164 @@
 
 <h2 id="3-imagenet图像分类算法">#3 <strong>ImageNet图像分类算法</strong></h2>
 
+<table>
+<thead>
+<tr>
+<th align="center">年份</th>
+<th align="center">模型</th>
+<th align="center">TOP5-ACC</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">2010</td>
+<td align="center">密集 HOG LBP+SVM</td>
+<td align="center">71.8%</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">2011</td>
+<td align="center">Fisher+线性SVM</td>
+<td align="center">74.2%</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">2012</td>
+<td align="center">AlexNet <sup><a href="#ref02">[2]</a></sup></td>
+<td align="center">84.6%</td>
+<td align="center">ReLU、image flip、patch extractions、dropout</td>
+</tr>
+
+<tr>
+<td align="center">2013</td>
+<td align="center">ZFNet <sup><a href="#ref03">[3]</a></sup></td>
+<td align="center">88.8%</td>
+<td align="center">similar architecture to AlexNet、7x7 first filter</td>
+</tr>
+
+<tr>
+<td align="center">2014</td>
+<td align="center">VGGNet <sup><a href="#ref04">[4]</a></sup></td>
+<td align="center">92.7%</td>
+<td align="center">3x3 sized filters、<font color="red"><em>Leaderboard Ranking 2</em></font></td>
+</tr>
+
+<tr>
+<td align="center">2014</td>
+<td align="center">GoogleNet <sup><a href="#ref05">[5]</a></sup></td>
+<td align="center">93.3%</td>
+<td align="center">Inception modules</td>
+</tr>
+
+<tr>
+<td align="center">2015</td>
+<td align="center">ResNet <sup><a href="#ref06">[6]</a></sup></td>
+<td align="center">96.4%</td>
+<td align="center">residual block、Ultra-deep</td>
+</tr>
+</tbody>
+</table>
+
 <p><br></p>
 
 <h2 id="4-关键技术">#4 <strong>关键技术</strong></h2>
 
-<p><code>HOG</code> <code>SIFT</code> <code>BOF</code> <code>VLAD</code> <code>LeNet</code> <code>AlexNet</code> <code>VGGNet</code> <code>GoogleNet</code> <code>ResNet</code></p>
+<p>&emsp;&emsp;<code>HOG</code> <code>SIFT</code> <code>BOF</code> <code>VLAD</code> <code>LeNet</code> <code>AlexNet</code> <code>VGGNet</code> <code>GoogleNet</code> <code>ResNet</code></p>
+
+<h3 id="4-1-hog-sup-转载-ref07-sup"><strong>4.1 HOG</strong> <sup><a href="#ref07">[转载]</a></sup></h3>
+
+<p>&emsp;&emsp;Histogram of oriented gradient, 梯度直方图。将图像分为小的细胞单元(cells)，每个细胞单元计算一个梯度方向(或边缘方向)直方图。为了对光照和阴影有更好的不变性，需要对直方图进行对比度归一化。将检测窗口中的所有块的HOG描述子组合起来就形成了最终的特征向量。</p>
+
+<h4 id="emsp-emsp-1-灰度化-br"><strong>&emsp;&emsp;1）灰度化</strong><br></h4>
+
+<p>&emsp;&emsp;Hog特征提取的是纹理特征，颜色信息不起作用，所以现将彩色图转为灰度图。</p>
+
+<h4 id="emsp-emsp-2-标准化-br"><strong>&emsp;&emsp;2）标准化</strong><br></h4>
+
+<p>&emsp;&emsp;为了提高检测器对光照等干扰因素的鲁棒性，需要对图像进行Gamma校正，以完成对整个图像的归一化，目的是调节图像的对比度，降低局部光照和阴影所造成的影响，同时也可以降低噪音的干扰；（当r取1/2时，像素的取值范围就从0~255变换到0~15.97）。</p>
+
+<h4 id="emsp-emsp-3-计算像素梯度-br"><strong>&emsp;&emsp;3）计算像素梯度</strong><br></h4>
+
+<p>&emsp;&emsp;计算图像像素的梯度：根据下面的公式计算每个像素的水平方向和竖直方向的梯度，并计算每个像素位置的梯度大小和方向。图像在像素点（x,y）处的水平方向和垂直方向的梯度。随后利用所得梯度计算像素点（x,y）处的梯度幅值和梯度方向。
+$$ G_{x}(x, y) = G(x+1, y) - G(x-1, y) $$
+$$ G_{y}(x, y) = G(x, y+1) - G(x, y-1) $$
+<br>
+$$ \nabla G(x, y) = \sqrt{G_{x}(x, y)^{2}+G_{y}(x, y)^{2}} $$
+$$ \theta (x, y) = tan^{-1}\frac{G_{y}(x, y)}{G_{x}(x, y)} $$</p>
+
+<h4 id="emsp-emsp-4-统计cell直方图-br"><strong>&emsp;&emsp;4）统计cell直方图</strong><br></h4>
+
+<p>&emsp;&emsp;将图像划分成小的Cell，将梯度方向映射到180度的范围内，将像素的梯度幅值作为权值进行投影，用梯度方向决定向哪一维进行投影，假如该像素的梯度方向为20度，梯度幅值为10，那么直方图的第二维就加10。下图是一个细胞单元内的方向梯度直方图，角度分辨率是在180度的范围内，以20度等分，即一个细胞单元的HOG特征是一个9维的向量。
+
+<figure class="center">
+    
+        <img src="https://upload-images.jianshu.io/upload_images/3584856-6627b9fc1f097e4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/345" />
+    
+    
+    <figcaption>
+        <h4>一个细胞单元的梯度方向直方图</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<h4 id="emsp-emsp-5-统计block直方图-br"><strong>&emsp;&emsp;5）统计block直方图</strong><br></h4>
+
+<p>&emsp;&emsp;统计每个细胞单元内的梯度直方图，形成每个细胞单元的描述子，由cell组成更大的描述子，称为块，将一个块内四个cell的特征向量串联起来就构成了该块的梯度方向直方图，按照一个细胞单元是9维的HOG特征，则一个块的HOG特征为4x9=36维。由于局部光照的变化，以及前景背景对比度的变化，使得梯度强度的变化范围非常大，这就需要对梯度做局部对比度归一化。这里的策略是针对每个块进行对比度归一化，一般使用L2-norm。</p>
+
+<h4 id="emsp-emsp-6-统计window直方图-br"><strong>&emsp;&emsp;6）统计window直方图</strong><br></h4>
+
+<p>&emsp;&emsp;只需要将窗口内所有块的Hog特征向量串联起来就得到了Window的HOG特征。</p>
+
+<h4 id="emsp-emsp-7-统计图像直方图-br"><strong>&emsp;&emsp;7）统计图像直方图</strong><br></h4>
+
+<p>&emsp;&emsp;一幅图像可以无重叠的划分为多个Window，这时将所有Window的特征向量串联起来就是整幅图像的HOG特征了，如果Window的大小和图像的大小相同，那么Window的HOG特征就是整幅图像的HOG特征。</p>
+
+<h3 id="emsp-emsp-note-that-br"><strong>&emsp;&emsp;<code>NOTE THAT !!!</code></strong><br></h3>
+
+<p>&emsp;&emsp;<em>Cell、Block、stride、细胞单元、块、步长、窗口、图像、Hog特证有什么联系？</em></p>
+
+<p>&emsp;&emsp;其实Cell就是细胞单元，Block指的就是块，Stride是步长，为了方便理解，下面给出了窗口、块、细胞单元、步长的相互关系图。</p>
+
+
+<figure class="center">
+    
+        <img src="https://upload-images.jianshu.io/upload_images/3584856-69d37207b9fa542f.png?imageMogr2/auto-orient/" />
+    
+    
+    <figcaption>
+        <h4>图像、窗口、块、细胞单元、步长的关系图</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<p>&emsp;&emsp;可以看到4个相邻Cell就组成了一个Block（左上角所示），接下来Block在图像上按照一定stride（黄色箭头），按照从左至右、从上至下的顺序进行滑动对图像进行遍历，通过第4步的计算我们就可以得到一个Cell的方向梯度直方图了，那么将四个Cell的方向梯度直方图进行串联，就组成了一个Block的梯度方向直方图，接下来该Block对Window进行遍历，是不是就有许多新的Block了（不断地会有4个相邻的Cell组成新的Block），最后我们将所有Block的方向梯度直方图串联起来就是Window的Hog特征啦，一幅图像可以当作一个窗口，也可以无重叠的划分为多个不重叠的窗口，如果是这种情况，将所有Window的特征串联起来就是图像的HOG特征了。记住我们最后得到的是一个行向量（列向量）。</p>
+
+<h3 id="4-2-sift"><strong>4.2 SIFT</strong></h3>
+
+<p>&emsp;&emsp;<code>coming soon...</code></p>
 
 <p><br></p>
 
 <h2 id="参考资料"># <strong>参考资料</strong></h2>
+
+<ol>
+<li><a id="ref01"><a href="http://cjc.ict.ac.cn/online/cre/hkq-2014526115913.pdf">图像物体分类与检测算法综述</a></a></li>
+<li><a id="ref02"><a href="http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks">Krizhevsky, A., Sutskever, I., &amp; Hinton, G. E. (2012). Imagenet classification with deep convolutional neural networks. In Advances in neural information processing systems (pp. 1097-1105).</a></a></li>
+<li><a id="ref03"><a href="https://link.springer.com/chapter/10.1007/978-3-319-10590-1_53">Zeiler, M. D., &amp; Fergus, R. (2014, September). Visualizing and understanding convolutional networks. In European conference on computer vision (pp. 818-833). Springer, Cham.</a></a></li>
+<li><a id="ref04"><a href="http://arxiv.org/pdf/1409.1556v6.pdf">Simonyan, K., &amp; Zisserman, A. (2014). Very deep convolutional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556.</a></a></li>
+<li><a id="ref05"><a href="http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf">Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S., Anguelov &amp; Rabinovich, A. (2015, June). Going deeper with convolutions. Cvpr.</a></a></li>
+<li><a id="ref06"><a href="https://arxiv.org/pdf/1512.03385v1.pdf">He, K., Zhang, X., Ren, S., &amp; Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778).</a></a></li>
+<li><a id="ref07"><a href="https://www.jianshu.com/p/6f69c751e9e7">方向梯度直方图（HOG）</a></a></li>
+<li><a id="ref08"><a href="https://adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html">The 9 Deep Learning Papers You Need To Know About (Understanding CNNs Part 3)</a></a></li>
+</ol>
 
 <p><br></p>
     </div>
@@ -321,7 +470,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">2018-03-21</span>
+    <span class="item-content">2018-03-23</span>
   </p>
   
   
