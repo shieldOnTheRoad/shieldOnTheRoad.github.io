@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>A Survey for Image Classification - shield&#39;s Blogs</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="shield" />
+  <meta name="description" content="图像分类算法综述，结合PASCAL VOC、ImageNet两个数据集介绍近20年来有关图像分类的相关技术。包含：手工特征、特征学习两种主要方法。
+" />
+
+  <meta name="keywords" content="learning, disscussion" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.35" />
+
+
+<link rel="canonical" href="http://shieldOnTheRoad.github.io/post/image-cls/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.0.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="A Survey for Image Classification" />
+<meta property="og:description" content="图像分类算法综述，结合PASCAL VOC、ImageNet两个数据集介绍近20年来有关图像分类的相关技术。包含：手工特征、特征学习两种主要方法。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://shieldOnTheRoad.github.io/post/image-cls/" />
+
+
+
+<meta property="article:published_time" content="2018-03-21T12:47:36&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-03-21T12:47:36&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="A Survey for Image Classification">
+<meta itemprop="description" content="图像分类算法综述，结合PASCAL VOC、ImageNet两个数据集介绍近20年来有关图像分类的相关技术。包含：手工特征、特征学习两种主要方法。">
+
+
+<meta itemprop="datePublished" content="2018-03-21T12:47:36&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-21T12:47:36&#43;08:00" />
+<meta itemprop="wordCount" content="2166">
+
+
+
+<meta itemprop="keywords" content="image-cls," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Survey for Image Classification"/>
+<meta name="twitter:description" content="图像分类算法综述，结合PASCAL VOC、ImageNet两个数据集介绍近20年来有关图像分类的相关技术。包含：手工特征、特征学习两种主要方法。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Shield&#39;s Blogs</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Shield&#39;s Blogs</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">A Survey for Image Classification</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-03-21 </span>
+        <div class="post-category">
+            
+              <a href="/categories/research/"> Research </a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p><code>图像分类</code>算法综述，结合<code>PASCAL VOC</code>、<code>ImageNet</code>两个数据集介绍近20年来有关<code>图像分类</code>的相关技术。包含：<code>手工特征</code>、<code>特征学习</code>两种主要方法。</p>
+
+<p>
+<br></p>
+
+<h2 id="1-概述">#1 <strong>概述</strong></h2>
+
+<p><code>图像分类</code>任务即是识别一张图片是否含有某类物体，有关<code>图像分类</code>算法的研究已经有五十多年历史，随着一些重要数据（e.g., <code>PASCAL VOC</code>、<code>ImageNet</code>）的相继推出，<code>图像分类</code>算法有了长足的发展。研究内容主要集中于如何对图像的特征进行描述。一般来说，<code>图像分类</code>算法通过<code>手工特征</code>或者<code>特征学习方法</code>对整幅图像进行全局描述，然后利用分类器判断是否存在某类物体。</p>
+
+<h3 id="1-1-手工特征"><strong>1.1 手工特征</strong></h3>
+
+<p>&emsp;&emsp;基于词袋模型（Bag of Words）的图像分类算法是提取<code>手工特征</code>的主要算法。图像分类里的词袋模型和文本挖掘中的词袋模型非常相似，通过构建一个通用的词表（图像对应由图像局部特征构建的词表、文本对应由文本词汇构成的词表），统计每一个训练数据在词表中出现的个数或差值等等形成表达特征。基于词袋模型的图像分类算法主要包括以下四个方面：1）底层特征提取；2）特征编码；3）特征汇聚；4）分类器设计。</p>
+
+<p><strong>1）底层特征提取.</strong>
+&emsp;底层特征是图像分类的第一步，底层特征提取方式有两种：一种是基于兴趣点检测，另一种是采用密集提取的方式。兴趣点检测算法通过某种准则选择具有明确定义的、局部纹理特征比较明显的像素点、边缘、角点、区块等，并且通常能够获得一定的几何不变性，从而可以在较小的开销下得到更有意义的表达，最常用的兴趣点检测算子有Harris角点检测子、Shi-Tomasi角点检测子、FAST（Featuress from Accelerated Segment Test）算子、LoG（Laplacian of Gaussian）、DoG（Difference of Gaussian）等。<br>
+&emsp;&emsp;近年来图像分类领域使用更多的则是密集提取的方式，从图像中按固定的步长、尺度提取出大量的局部特征描述，大量的局部描述尽管具有更高的冗余度，但信息更加丰富，后面再使用词袋模型进行有效表达后通常可以得到比兴趣点检测更好的性能。常用的局部特征包括SIFT（Scale Invariant Feature Transform，尺度不变特征转换）、HOG（Histogram of Oriented Gradient，方向梯度直方图）等。<code>PASCAL VOC</code>竞赛历年最好的图像分类算法都采用了多种特征，采样方式上密集提取与兴趣点检测相结合，底层特征描述也采用了多种特征描述子，这样做的好处是，在底层特征提取阶段，通过提取到大量的冗余特征，最大限度的对图像进行底层描述，防止丢失过多的有用信息，这些底层描述中的冗余信息主要靠后面的特征编码和特征汇聚得到抽象和简并。</p>
+
+<p><strong>2）特征编码</strong>
+&emsp;密集提取的底层特征中包含了大量的冗余与噪声，为提高特征表达的鲁棒性，需要使用一种特征变换算法对底层特征进行编码，从而获得更具区分性、更加鲁棒的特征表达，这一步对图像分类的性能具有至关重要的作用，因而大量的研究工作都集中在寻找更加强大的特征编码方法，重要的特征编码算法包括向量量化编码、核词典编码、稀疏编码、局部线性约束编码、VLAD（Vector of Locally Aggregated Descriptors）向量编码、Fisher向量编码等。</p>
+
+<p><strong>3）特征汇聚</strong>
+&emsp;空间特征汇聚是特征编码后进行的特征集整合操作，通过对编码后的特征，每一维都取其最大值或者平均值，得到一个紧致的特征向量作为图像的特征表达。这一步得到的图像表达可以获得一定的特征不变性，同时也避免了使用特征集进行图像表达的高额代价。最大值汇聚在绝大部分情况下的性能要优于平均值汇，在图像分类中使用最为广泛。由于图像通常具有极强的空间结构约束，空间金字塔匹配SPM（Spatial Pyramid Matching）提出将图像均匀分块，然后每个区块里面单独做特征汇聚操作并将所有特征向量拼接起来作为图像最终的特征表达。</p>
+
+<p><strong>4）分类器设计</strong>
+&emsp;使用支持向量机等分类器进行分类。从图像提取到特征表达之后，一张图像可以使用一个固定维度的向量进行描述，接下来就是学习一个分类器对图像进行分类．这个时候可以选择的分类器就很多了，常用的分类器有支持向量机、犓近邻、神经网络、随机森林等。基于最大化边界的支持向量机是使用最为广泛的分类器之一，在图像分类任务上性能很好，特别是使用了核方法的支持向量。</p>
+
+<h3 id="1-2-特征学习方法"><strong>1.2 特征学习方法</strong></h3>
+
+<p>&emsp;&emsp;最近几年，深度学习模型逐渐成为图像分类的首选算法，其基本思想是通过有监督或者无监督的方式学习层次化的特征表达，来对图像特征进行从底层图像语义到高层图像语义的描述。主流的深度学习模型主要包括自动编码器（Auto Encoder）、受限波尔兹曼机RBM（Restricted Boltzmann Machine）、深度信念网络DBN（Deep Belief Nets）卷积神经网络CNN（Convolutional Neural Networks）。从最近几年超大规模图像分类比赛<code>ImageNet</code>的冠军模型可以发现，卷积神经网络正在成为最主流的图像分类算法。2012年Hinton等人提出<code>AlexNet</code>，首次颠覆了以<code>手工特征</code>为核心的图像分类算法。<code>ImageNet</code>图像分类竞赛后续的几年中，出现了大量分类性能良好的卷积神经网络，比如：<code>VGGNet</code>、<code>GoogleNet</code>、<code>Resnet</code>、<code>SENet</code>等。</p>
+
+<p><br></p>
+
+<h2 id="2-pascal-voc图像分类算法">#2 <strong>PASCAL VOC图像分类算法</strong></h2>
+
+<p><br></p>
+
+<h2 id="3-imagenet图像分类算法">#3 <strong>ImageNet图像分类算法</strong></h2>
+
+<p><br></p>
+
+<h2 id="4-关键技术">#4 <strong>关键技术</strong></h2>
+
+<p><br></p>
+
+<h2 id="参考资料"># <strong>参考资料</strong></h2>
+
+<p><br></p>
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">shield</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2018-03-21</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/image-cls/">image-cls</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/trends/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">[Pin] Keep up with New Trends</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/python-manual/">
+            <span class="next-text nav-default">Python Manual</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/shieldOnTheRoad" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/lin-jiong-jiong-45/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="http://shieldOnTheRoad.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">shield</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=3.0.0"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

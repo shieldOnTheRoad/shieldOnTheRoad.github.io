@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>http://shieldOnTheRoad.github.io/post/image-cls/</loc>
+    <lastmod>2018-03-21T12:47:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://shieldOnTheRoad.github.io/post/python-manual/</loc>
     <lastmod>2018-02-11T15:48:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -60,6 +67,13 @@
   <url>
     <loc>http://shieldOnTheRoad.github.io/tags/github/</loc>
     <lastmod>2018-02-21T14:18:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://shieldOnTheRoad.github.io/tags/image-cls/</loc>
+    <lastmod>2018-03-21T12:47:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
