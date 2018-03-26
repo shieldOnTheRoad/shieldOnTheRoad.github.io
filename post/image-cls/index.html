@@ -59,7 +59,7 @@
 
 <meta property="article:published_time" content="2018-03-21T12:47:36&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-03-23T12:47:36&#43;08:00"/>
+<meta property="article:modified_time" content="2018-03-26T10:47:36&#43;08:00"/>
 
 
 
@@ -77,7 +77,7 @@
 
 <meta itemprop="datePublished" content="2018-03-21T12:47:36&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-21T12:47:36&#43;08:00" />
-<meta itemprop="wordCount" content="5696">
+<meta itemprop="wordCount" content="5725">
 
 
 
@@ -195,7 +195,7 @@
 
 <h4 id="emsp-emsp-3-特征汇聚"><strong>&emsp;&emsp;3）特征汇聚</strong></h4>
 
-<p>&emsp;&emsp;空间特征汇聚是特征编码后进行的特征集整合操作，通过对编码后的特征，每一维都取其最大值或者平均值，得到一个紧致的特征向量作为图像的特征表达。这一步得到的图像表达可以获得一定的特征不变性，同时也避免了使用特征集进行图像表达的高额代价。最大值汇聚在绝大部分情况下的性能要优于平均值汇，其在图像分类中使用最为广泛。由于图像通常具有极强的空间结构约束，空间金字塔匹配SPM （Spatial Pyramid Matching）提出将图像均匀分块，然后每个区块里面单独做特征汇聚操作并将所有特征向量拼接起来作为图像最终的特征表达。</p>
+<p>&emsp;&emsp;空间特征汇聚是特征编码后进行的特征集整合操作，通过对编码后的特征，每一维都取其最大值或者平均值，得到一个紧致的特征向量作为图像的特征表达。这一步得到的图像表达可以获得一定的特征不变性，同时也避免了使用特征集进行图像表达的高额代价。最大值汇聚在绝大部分情况下的性能要优于平均值汇，其在图像分类中使用最为广泛。由于图像通常具有极强的空间结构约束，空间金字塔匹配SPM <sup><a href="#ref15">[15]</a></sup>（Spatial Pyramid Matching）提出将图像均匀分块，然后每个区块里面单独做特征汇聚操作并将所有特征向量拼接起来作为图像最终的特征表达。</p>
 
 <h4 id="emsp-emsp-4-分类器设计"><strong>&emsp;&emsp;4）分类器设计</strong></h4>
 
@@ -366,7 +366,7 @@
 
 <h2 id="4-关键技术">#4 <strong>关键技术</strong></h2>
 
-<p>&emsp;&emsp;Keywords: <code>HOG</code> <code>SIFT</code> <code>BOF</code> <code>VLAD</code> <code>LeNet</code> <code>AlexNet</code> <code>VGGNet</code> <code>GoogleNet</code> <code>ResNet</code></p>
+<p>&emsp;&emsp;Keywords: <code>HOG</code> <code>SIFT</code> <code>BOF</code> <code>VLAD</code> <code>LeNet</code> <code>AlexNet</code> <code>ZFNet</code> <code>VGGNet</code> <code>GoogleNet</code> <code>ResNet</code> <code>DenseNet</code> <code>ResNeXt</code> <code>SENet</code></p>
 
 <h3 id="4-1-hog-sup-转载-ref07-sup-sup-11-ref11-sup"><strong>4.1 HOG</strong> <sup><a href="#ref07">[转载]</a></sup><sup><a href="#ref11">[11]</a></sup></h3>
 
@@ -547,7 +547,15 @@ $$ D(x,y,\sigma) = (G(x,y,k^{n}\sigma) - G(x,y,k^{n-1}\sigma)) * I(x,y) $$</p>
 <li>使用dropout方法（利用dropout方法类似于随机森林随机抽取特征，可缓解模型过拟合）</li>
 </ul>
 
-<h3 id="4-4-vggnet-sup-4-ref04-sup"><strong>4.4 VGGNet</strong> <sup><a href="#ref04">[4]</a></sup></h3>
+<h3 id="4-4-zfnet-sup-3-ref04-sup"><strong>4.4 ZFNet</strong> <sup><a href="#ref04">[3]</a></sup></h3>
+
+<p>&emsp;&emsp;<code>coming soon...</code></p>
+
+<h3 id="4-5-vggnet-sup-4-ref04-sup"><strong>4.5 VGGNet</strong> <sup><a href="#ref04">[4]</a></sup></h3>
+
+<p>&emsp;&emsp;<code>coming soon...</code></p>
+
+<h3 id="4-6-googlenet-sup-5-ref05-sup"><strong>4.6 GoogleNet</strong> <sup><a href="#ref05">[5]</a></sup></h3>
 
 <p>&emsp;&emsp;<code>coming soon...</code></p>
 
@@ -570,6 +578,7 @@ $$ D(x,y,\sigma) = (G(x,y,k^{n}\sigma) - G(x,y,k^{n-1}\sigma)) * I(x,y) $$</p>
 <li><a id="ref12"><a href="https://www.cse.unr.edu/~bebis/CS491Y/Papers/Lowe04.pdf">Distinctive Image Features from Scale-Invariant Keypoints</a></a></li>
 <li><a id="ref13"><a href="http://ieeexplore.ieee.org/document/5540039/">Aggregating local descriptors into a compact image representation</a></a></li>
 <li><a id="ref14"><a href="http://www.europe.naverlabs.com/layout/set/print/content/download/20837/148502/file/2006-034.pdf">Fisher kernels on visual vocabularies for image categorization</a></a></li>
+<li><a id="ref15"><a href="http://mplab.ucsd.edu/~marni/Igert/Lazebnik_06.pdf">Beyond Bags of Features: Spatial Pyramid Matchingfor Recognizing Natural Scene Categories</a></a></li>
 </ol>
 
 <p><br></p>
@@ -583,7 +592,7 @@ $$ D(x,y,\sigma) = (G(x,y,k^{n}\sigma) - G(x,y,k^{n-1}\sigma)) * I(x,y) $$</p>
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">2018-03-23</span>
+    <span class="item-content">2018-03-26</span>
   </p>
   
   
