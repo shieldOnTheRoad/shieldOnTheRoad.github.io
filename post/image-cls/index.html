@@ -77,7 +77,7 @@
 
 <meta itemprop="datePublished" content="2018-03-21T12:47:36&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-21T12:47:36&#43;08:00" />
-<meta itemprop="wordCount" content="5725">
+<meta itemprop="wordCount" content="6056">
 
 
 
@@ -551,9 +551,23 @@ $$ D(x,y,\sigma) = (G(x,y,k^{n}\sigma) - G(x,y,k^{n-1}\sigma)) * I(x,y) $$</p>
 
 <p>&emsp;&emsp;<code>coming soon...</code></p>
 
-<h3 id="4-5-vggnet-sup-4-ref04-sup"><strong>4.5 VGGNet</strong> <sup><a href="#ref04">[4]</a></sup></h3>
+<h3 id="4-5-vggnet-sup-4-ref04-sup-sup-16-ref04-sup"><strong>4.5 VGGNet</strong> <sup><a href="#ref04">[4]</a></sup><sup><a href="#ref04">[16]</a></sup></h3>
 
-<p>&emsp;&emsp;<code>coming soon...</code></p>
+<p>&emsp;&emsp;VGGNet是ILSVRC 2014竞赛的第二名网络，Top5的错误率为7.3%，由牛津大学的Karen Simonyan和 Andrew Zisserman实现。它主要的贡献是展示出网络的深度是算法优良性能的关键部分。网络的结构非常一致，从头到尾均使用3x3的卷积和2x2的池化。相比于ILSVRC 2012的第一名AlexNet，它们的网络结构相似，均是卷积池化 &ndash; 卷积池化 &ndash; ··· &ndash; 全连接的连接方式，不同的是kernel大小、卷积的stride，网络的深度以及VGGNet使用了更小卷积核。使用更小的卷积核（3X3）能有效减少模型参数，压缩模型大小。也因此使得VGGNet耗费更多计算资源。VGGNet的网络结构如下图。</p>
+
+
+<figure class="center">
+    
+        <img src="../../img/vggnet.png" />
+    
+    
+    <figcaption>
+        <h4>VGGNet模型结构图</h4>
+        
+    </figcaption>
+    
+</figure>
+
 
 <h3 id="4-6-googlenet-sup-5-ref05-sup"><strong>4.6 GoogleNet</strong> <sup><a href="#ref05">[5]</a></sup></h3>
 
@@ -579,6 +593,8 @@ $$ D(x,y,\sigma) = (G(x,y,k^{n}\sigma) - G(x,y,k^{n-1}\sigma)) * I(x,y) $$</p>
 <li><a id="ref13"><a href="http://ieeexplore.ieee.org/document/5540039/">Aggregating local descriptors into a compact image representation</a></a></li>
 <li><a id="ref14"><a href="http://www.europe.naverlabs.com/layout/set/print/content/download/20837/148502/file/2006-034.pdf">Fisher kernels on visual vocabularies for image categorization</a></a></li>
 <li><a id="ref15"><a href="http://mplab.ucsd.edu/~marni/Igert/Lazebnik_06.pdf">Beyond Bags of Features: Spatial Pyramid Matchingfor Recognizing Natural Scene Categories</a></a></li>
+<li><a id="ref16"><a href="http://ethereon.github.io/netscope/#/preset/vgg-16">vgg-16 caffe graph</a></a></li>
+<li><a id="ref99"><a href="https://dgschwend.github.io/netscope/#/editor">[useful link] draw caffe model</a></a></li>
 </ol>
 
 <p><br></p>
